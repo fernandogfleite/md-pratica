@@ -14,8 +14,8 @@ def combinacao_linear(a,b):
     return (d, yy, xx - (a//b)*yy)
 
 
-def inverso(s, t, contador, m):
-    inv = s + (t*contador)
+def inverso(s, contador, m):
+    inv = s + (m*contador)
     
     if inv > 0 and inv < m:
         return inv
@@ -23,7 +23,7 @@ def inverso(s, t, contador, m):
     elif inv > m:
         return inv % m
 
-    return inverso(s, t, contador+1, m)
+    return inverso(s, contador+1, m)
 
 
 congruencias = list()
@@ -75,7 +75,7 @@ if coprimos is True:
         
         combinacao = combinacao_linear(a, m)
 
-        inv = inverso(combinacao[1], m, 0, m)
+        inv = inverso(combinacao[1], 0, m)
 
         if inv > m:
             inv = inv % m
